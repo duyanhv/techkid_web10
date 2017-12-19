@@ -19,15 +19,12 @@ function generate(numberOfTestcases, filePath = "./test-data.json"){
     return Math.floor(Math.random()*(max - min)) + min;
   }
 
-  let input = [];
-  let target = [];
-  let output = [];
+  var input = [];
+  var target = [];
+  var output = [];
   function createTestCase(testType){
     const lengthToGen = randomInt(array_length_min,array_length_max);
     
-    const sortedInput = [];
-
-
     if(testType === "ZERO_LENGTH"){
       return{
         input: [],
@@ -41,25 +38,36 @@ function generate(numberOfTestcases, filePath = "./test-data.json"){
     for(var i = 0; i < lengthToGen; i++){
       var num = randomInt(min,max);
 
-      for(let sInput of sortedInput){
-        if(num >= sInput){
-          num++;
-        }
+      // for(let sInput of sortedInput){
+      //   if(num >= sInput){
+      //     num++;
+      //   }
 
-        input.push(num);
+      //   input.push(num);
 
-        if(sortedInput.length == 0 || sortedInput[sortedInput.length - 1] < num){
-            sortedInput.push(num);
-        }else{
-          for(var i = 0; i < sortedInput.length; i++){
-            if(sortedInput[i] > num){
-              sortedInput.splice(i, 0 ,num);
-              break;
-            }
-          }
-        }
+      //   if(sortedInput.length == 0 || sortedInput[sortedInput.length - 1] < num){
+      //       sortedInput.push(num);
+      //   }else{
+      //     for(var i = 0; i < sortedInput.length; i++){
+      //       if(sortedInput[i] > num){
+      //         sortedInput.splice(i, 0 ,num);
+      //         break;
+      //       }
+      //     }
+      //   }
+        
+           if(input.length == 500){
+             break;
+           }else{
+              if(input.indexOf(num) === -1)
+                input.push(num);
+           }
+          
+      
+         input.sort();
       }
-    }
+      
+    
 
     let notfound = input.length === lengthToGen ? input.splice(randomInt(0,input.length), 1)[0] : min-1;
      output = createTestCaseOutput(testType, input);
@@ -106,7 +114,8 @@ function generate(numberOfTestcases, filePath = "./test-data.json"){
       test_cases.push(test_case);
     }
     return test_cases;
-}
+  }
+
 
 
 module.exports = generate

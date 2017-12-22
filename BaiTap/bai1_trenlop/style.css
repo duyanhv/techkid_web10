@@ -1,3 +1,5 @@
+*{margin:0; padding: 0;}
+
 nav.menu{
 	/*margin: 0 auto;*/
 	background-color: #D5B0AC;
@@ -12,6 +14,7 @@ nav span{
 	/*padding: 10px;*/
 	text-align: center;
 	color:#402E2A;
+	cursor: pointer;
 }
 
 nav.menu span{
@@ -28,6 +31,7 @@ nav.menu span{
 span:hover{
 	background-color:#9CD08F ;
 	color:#FFFFFF;
+	transition: all .4s linear;
 }
 
 
@@ -57,3 +61,99 @@ nav.verticle-menu span{
 	
 }	
 
+/*nav.menu > span:hover > div.menu_submenu{
+	display: block;
+
+}
+
+nav.menu > div.menu_submenu > span:hover{
+	background-color:#9CD08F ;
+	color:#FFFFFF;
+}
+
+nav.menu > div.menu_submenu{
+	display: none;
+	background-color: #D5B0AC;
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	
+}
+
+div.menu_submenu > div.menu_submenu{
+	left: 100%;
+
+}
+
+div.menu_submenu{
+	display: none;
+	background-color: #D5B0AC;
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	
+	
+}
+
+div.menu_submenu span{
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	color:#402E2A;
+	display: block;
+
+}
+
+div.menu_submenu span:hover div.menu_sub_submenu{
+	display: block;
+}
+div.menu_sub_submenu{
+	display: none;
+	background-color: #D5B0AC;
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	margin-left: 100px;
+	margin-top: -30px;
+}*/
+
+
+
+div.submenu{
+	display: none;
+	position: absolute;
+	background-color: #D5B0AC;
+	text-align: center;
+	font-weight: bold;
+	/*top:30px;*/
+	
+}
+
+
+nav.menu > span:hover > div.submenu{
+	display: block;
+
+}
+
+div.submenu > span{
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	color:#402E2A;
+	display: block;
+
+}
+
+
+
+div.submenu > span:hover > div.submenu{
+	display: block;
+	margin-left: 100px;
+	margin-top: -30px;
+}
+
+
+div.submenu > span:hover{
+	background-color: #9CD08F;
+	color: #FFFFFF;
+}

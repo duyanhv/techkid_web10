@@ -1,0 +1,50 @@
+*{margin: 0; padding: 0;}
+
+.parent_div{
+	width: 400px;
+	height: 400px;
+	background-color: green;
+	position: relative;
+	/*float: left;*/
+	overflow: scroll;
+
+	left: 50%;
+	transform: translate(-50%);
+
+}
+
+.div_1{
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	/*margin-top: 30px;*/
+	position: absolute;
+	/*float: right;*/
+	/*clear: left;*/
+	padding-top: 500px;
+
+}
+
+.div_2{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
+
+.text_div{
+	width: 200px;
+	height: 200px;
+	overflow: auto;
+}
+
+button{
+	width: 200px;
+	height: 200px;
+	background: blue;
+}
+
+button:hover{
+	transition: all .4s linear;
+	background: red;
+	width: 300px;
+}

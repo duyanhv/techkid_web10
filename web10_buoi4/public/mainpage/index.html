@@ -7,13 +7,30 @@
     <title>Duy Anh Vu</title>
 
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
         <div class="profile_name">
             <p>Vu Duy Anh</p>
         </div>
-        <a onclick="openNav()" id="nav_toggle"><span></span></a>
+
+        <div id="overlay_id" class="overlay">
+            
+            <div class="overlay about">
+                <h3>About DuyAnhV</h3>
+                <p>Something something...</p>
+            </div>
+    
+            <div class="overlay nav">
+                <a href="/public/cv1">CV 1</a>
+                <a href="/public/cv2">CV 2</a>
+                <a href="" onclick="whyTho()">Homepage</a>
+            </div>
+        </div>
+
+
+        <a onclick="navButton()" id="nav_toggle"><span></span></a>
         
         <div class="mainpage_img">
 

@@ -16,6 +16,7 @@ div.wrapper{
     text-align: center;
     display: table;
     position: fixed;
+    z-index: 2;
 }
 
 .profile_name p {
@@ -32,6 +33,7 @@ div.wrapper{
     top: 50px;    
     cursor: pointer;
     position:fixed;
+    z-index: 2;
 }
 
 #nav_toggle span, #nav_toggle span::before, #nav_toggle span::after{
@@ -42,6 +44,7 @@ div.wrapper{
     position: absolute;
     display: block;
     content:'';
+    /* z-index: 2; */
 }
 
 #nav_toggle span::before{
@@ -58,10 +61,12 @@ div.wrapper{
 
 #nav_toggle.active span{
     background-color: transparent;
+    /* z-index: 2; */
 }
 
 #nav_toggle.active span::before, #nav_toggle.active span::after{
     top:0px;
+    /* z-index: 2; */
 }
 
 #nav_toggle.active span::before{
@@ -83,4 +88,52 @@ div.wrapper{
     background-size: cover;
     border-radius: 50%;
     padding-left:50px;
+    z-index: 0.5;
+}
+
+.overlay{
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    left:0;
+    top: 0;
+    background-color: #4B4BE1;
+    background-color: #FFC80F;
+    overflow-x: hidden;
+    transition: 0.5s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.about{
+    width: 400px;
+    height: 300px;
+    /* border: 1px solid #000000; */
+    position: relative;
+    margin: 200px 0 0 100px;
+    float:left;
+}
+
+.about h3{
+    font-size: 40px;
+}
+
+.nav{
+    position:relative;
+    width: 200px;
+    height: 300px;
+    font-size:30px;
+    margin: 200px 234px 0 0;
+    float:right;
+}
+
+.nav a{
+    display: block;
+    /* text-decoration: none; */
+    color:#000000;
+        
+}
+
+.nav a:hover{
+    text-decoration: none;
 }

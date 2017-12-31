@@ -1,0 +1,160 @@
+*{margin:0; padding:0;}
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('font/BebasNeue.eot?#iefix') format('embedded-opentype'),  
+  url('font/BebasNeue.woff') format('woff'), url('BebasNeue.ttf')  format('truetype'), 
+  url('font/BebasNeue.svg#BebasNeue') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div.container{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+div.container div{
+	
+}
+
+div.header_div{
+	width: 100%;
+	height: 300px;
+	background-color: #aed5cb;
+	
+}
+
+div.header_div p.p_asset{
+	padding-top: 30px;
+	text-align: center;
+	font-size:30px;
+	font-style: bold;
+	font-family: BebasNeue;
+	color: #FFFFFF;
+}
+
+div.info_div{
+	background-color: #f1be4c;
+	width: 60%;
+	height: 300px;
+	position: absolute;
+	margin-top: -100px;
+	left: 50%;
+	margin-left: -30%;
+}
+div.info_div p{
+	
+	text-align: center;
+	font-size:30px;
+	font-style: bold;
+	font-family: BebasNeue;
+	color: #FFFFFF;
+}
+
+div.profile_image_div{
+	width: 30%;
+	height: 100%;
+	background-color: #FFF176;
+	float: right;
+}
+
+div.profile_image_div p{
+	padding-top: 30px;
+	text-align: center;
+	font-size: 30px;
+	font-style: bold;
+	font-family: BebasNeue;
+	color: #F57F17;
+}
+
+div.detail_div{
+	width: 70%;
+	height: 100%;
+	float: left;
+}
+
+div.detail_div p{
+	text-align: left;
+	font-size: 20px;
+	font-style: normal;
+	font-family: BebasNeue;
+	color: #F57F17;
+	
+}
+#p_name{
+	padding-top: 30px;
+	font-size: 30px;
+	font-style: bold;
+	padding-left: 20px;
+}
+#p_job{
+	padding-left: 20px;
+}
+
+img{
+	/*display: inline;*/
+	padding-left: 20px;
+
+}
+
+#img_email{
+	
+	vertical-align: middle;
+}
+#p_email{
+	display: inline-block;
+}
+
+
+div.detail2_div{
+	padding-top: 20px;
+}
+
+div.social_media_div{
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+input{
+  display:inline-block;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  border: 1px solid #FFF176;
+  color: #FFFFFF;
+  
+  
+margin-right: 15px;
+cursor: pointer;	  
+}
+input:hover{
+	box-shadow: 3px 3px 3px #888888;
+}
+
+#inputfb{
+	border: 1px solid #0D47A1;
+	background-color: #0D47A1;
+}
+#inputt{
+	border: 1px solid #03A9F4;
+	background-color: #03A9F4;
+}
+#inputlinkid{
+	border: 1px solid #01579B;
+	background-color: #01579B;
+}
+
+#inputfeed{
+	border: 1px solid #FF6F00;
+	background-color: #FF6F00;
+}
+
+
+
+
+
+
+
+
+

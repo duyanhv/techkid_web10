@@ -1,0 +1,95 @@
+*{margin:0; padding:0;}
+
+div.header_div{
+	border:2px solid #000000;
+	
+	width: 60%;
+	margin-left: 20%;
+	margin-top:57.5px;
+	height: 162px;
+
+
+} 
+
+div.header_div p{
+	font-size:60px;
+	font-family: georgia;
+	text-align: center;
+	color: #333131;
+	
+	margin-top: 30px;
+}
+
+div.link_div{
+	text-align: center;
+	margin-top:17px;
+}
+
+div.link_div a{
+	text-decoration: none;
+	color: #858484;
+	font-family: georgia; 
+	padding: 10px;
+	font-style:italic;
+}
+
+div.body_div{
+	width: 75%;
+	height: 500px;
+	margin-left: 12.5%;
+
+	margin-top: 10%;
+}
+
+div.img1{
+	background: url(./assets/ghibli1.jpg);
+	width: 467px;
+	height: 467px;
+	position: relative;
+}
+
+div.img1:hover >  .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color:#000;
+    opacity:0.5;
+    /*border-radius:30px;*/
+} 
+
+div.img2{
+	background: url(./assets/ghibli2.jpeg);
+	width: 467px;
+	height: 467px;
+	position: relative;
+	float: right;
+
+	margin-top: -467px;
+}
+div.img2:hover >  .overlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-color:#000;
+    opacity:0.5;
+
+    /*border-radius:30px;*/
+} 
+
+div.footer_div{
+	width: 100%;
+	height: 300px;
+	text-align: center;
+	font-family: georgia;
+	font-style: italic;
+	margin-top:100px;
+}
+
+
+div.footer_div img{
+	width: 22px;
+	height: 22px;
+	padding: 10px;
+	margin-top: 14px;
+}
+

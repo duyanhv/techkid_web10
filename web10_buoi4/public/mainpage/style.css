@@ -29,16 +29,17 @@ div.wrapper{
 }
 #nav_toggle{
     position: absolute;
-    right: 60px;
-    top: 50px;    
+    right: 25px;
+    top: 40px;    
     cursor: pointer;
     position:fixed;
     z-index: 2;
+    padding: 10px 35px 16px 0px;
 }
 
 #nav_toggle span, #nav_toggle span::before, #nav_toggle span::after{
     cursor: pointer;
-    height: 3px;
+    height: 1px;
     width: 25px;
     background: #000000;
     position: absolute;

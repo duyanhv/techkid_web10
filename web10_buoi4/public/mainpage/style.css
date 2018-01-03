@@ -27,6 +27,9 @@ div.wrapper{
     font-weight: lighter;
     font-size: 22px;
 }
+
+
+
 #nav_toggle{
     position: absolute;
     right: 25px;
@@ -51,6 +54,7 @@ div.wrapper{
 #nav_toggle span::before{
     top: -4px;
 }
+
 
 #nav_toggle span::after{
     bottom: -4px;
@@ -79,7 +83,7 @@ div.wrapper{
 }
 
 .mainpage_img{
-    background: url(./assets/mainpage_background.jpg);
+    background: url(./assets/mainpage_background.JPG);
     width: 300px;
     height: 300px;
     left: 50%;
@@ -89,7 +93,19 @@ div.wrapper{
     background-size: cover;
     border-radius: 50%;
     padding-left:50px;
+    position: fixed;
     z-index: 0.5;
+}
+
+.cool_overlay{
+    height: 100%;
+    width: 0%;
+    z-index: 1;
+    left:0;
+    top: 0;
+    background-color: #4B4BE1;
+    transition: 0.5s;
+    position: fixed;
 }
 
 .overlay{
@@ -99,7 +115,7 @@ div.wrapper{
     z-index: 1;
     left:0;
     top: 0;
-    background-color: #4B4BE1;
+    
     background-color: #FFC80F;
     overflow-x: hidden;
     transition: 0.5s;
@@ -138,3 +154,70 @@ div.wrapper{
 .nav a:hover{
     text-decoration: none;
 }
+
+.first_content{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    z-index: 0.9;
+    background-color: #4B4BE1;
+    top: 100%;
+    /* padding-top: 100%; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.first_content .about{
+    position: relative;
+    top: -160px;
+    left: -70px;
+    width: 30%;
+    height: 40%;
+    border-radius: 10px;
+    background-color: #3F43B5;
+}
+
+div.first_content .about p{
+    color: #FFFFFF;
+}
+
+#about1_id{
+    float: right;
+    width: 30%;
+    height: 10%;
+}
+
+#about2_id{
+    display: block;
+    float: right;
+
+}
+
+div.first_content .img{
+    width: 30%;
+    height: 50%;
+    background: url(./assets/000058.JPG);
+    background-size: cover;
+    z-index: 0.9;
+    position: relative;
+    border-radius: 10%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+}
+
+.second_content{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    z-index: 0.9;
+    background-color: #F74C3B;
+    top:100%;
+}
+/*  #nav_toggle:hover span::before{
+    transition: 0.01s;
+    top: -5px;
+}
+
+#nav_toggle:hover span::after{
+    transition: 0.01s;
+    bottom: -5px;
+} */

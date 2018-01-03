@@ -10,7 +10,11 @@ let flag = true;
 function navButton(){    
   
   if(flag){
+      // document.getElementById("cool_overlay_id").style.width = "100%";
+      // document.getElementById("cool_overlay_id").style.width = "0%";
       document.getElementById("overlay_id").style.width = "100%";
+
+      
       flag = false;
       console.log("open");
     }else{

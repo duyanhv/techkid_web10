@@ -1,0 +1,14 @@
+<div class="answer">
+    <h1>{{answer}}</h1>
+    <div class="answer-child">
+        <form action="/answer/y" method="post">
+            <input type="submit" value="YES">
+        </form>
+
+        <form action="/answer/n" method="post">
+            <input type="submit" value="NO">
+        </form>
+    </div>
+    <button onclick="reloadSite()">Another question</button>
+    <a href={{{id}}}>Result</a>
+</div>

@@ -1,14 +1,17 @@
-<div class="answer">
-    <h1>{{answer}}</h1>
-    <div class="answer-child">
-        <form action="/answer/y" method="post">
-            <input type="submit" value="YES">
+<div class="container" id="answer_container">
+    <h1 class="text-center">{{answer}}</h1>
+    <div class="row text-center">
+        <form class="col-xs-6" action="/answer/y" method="post">
+            
+            <button type="submit" class="btn btn-success" value="YES"> <i class="glyphicon glyphicon-thumbs-up"></i> YES / YES / YES</button>
         </form>
 
-        <form action="/answer/n" method="post">
-            <input type="submit" value="NO">
+        <form class="col-xs-6" action="/answer/n" method="post">
+
+            <button type="submit" class="btn btn-danger" value="NO"> <i class="glyphicon glyphicon-thumbs-down"></i>  NO / NO / NO</button>
         </form>
+        <button onclick="reloadSite()" class="btn btn-default">Another question</button>
+        <button class="btn btn-default"><a href={{{id}}}>Result</a></button>
     </div>
-    <button onclick="reloadSite()">Another question</button>
-    <a href={{{id}}}>Result</a>
+    
 </div>

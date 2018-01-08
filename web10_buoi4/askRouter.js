@@ -1,35 +1,44 @@
 const express = require('express');
 const Router = express.Router();
+const fs = require('fs');
 const fc = require('./fileController');
-const askjson = require('./ask.json');
+// var askjson = require('./ask.json');
+ 
+const askjson = fs.existsSync('ask.json') ? require('./ask.json') : initJson();
+// const askjson = "";
+function initJson() {
 
-function initJson(){
-
-    if(!fc.exists('ask.json')){
-        fc.writeFile('ask.json','[{"id":0,"question":"","yes":0,"no":0}]');
+    if (!fs.existsSync('ask.json')) {
+        fc.writeFile('ask.json', '[{"id":0,"question":"","yes":0,"no":0}]');
         console.log("chay vao initJson");
-    }else{
-        console.log("file exixsted");    
+    } else {
+        console.log("file exixsted");
     }
-    
+
+    if(fs.existsSync('ask.json')){
+        askjson = require('./ask.json');
+        
+    }
+
 }
 
 
 
-function pushJson(question1){
+
+function pushJson(question1) {
     console.log(askjson.length);
 
     var jsonStr = askjson;
-    var newValues =  {"id" : askjson.length, "question": question1, "yes": 0, "no": 0};
+    var newValues = { "id": askjson.length, "question": question1, "yes": 0, "no": 0 };
     jsonStr.push(newValues);
     fc.writeFile('ask.json', JSON.stringify(jsonStr));
     console.log("Chay vao pushJson");
-   
-    
-    
+
+
+
 }
 
-function randomInt(min, max){
+function randomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
 
@@ -39,90 +48,104 @@ function randomInt(min, max){
 }
 
 
-Router.get('/',(req, res)=>{
-    res.render("ask");
+Router.get('/', (req, res) => {
+    res.render("ask",{
+        homepageActive: "active",
+        askActive: "",
+        answerActive: ""
+    });
 
-    
+
 });
 
-Router.get('/ask', (req,res) =>{
-    res.render("ask");
-    initJson();
+Router.get('/ask', (req, res) => {
+    res.render("ask",{
+        homepageActive: "",
+        askActive: "active",
+        answerActive: ""
+    });
+    // initJson();
     // pushJson();
 });
 
-Router.get('/sub', (req,res)=>{
+Router.get('/sub', (req, res) => {
     res.send("Sub page");
-  
+
 });
 
-let current = [];
+let current = 0;
 
+function randomAskk() {
 
-
-
-function randomAskk(){
-    var randomAsk = randomInt(1, askjson.length);
-    // console.log("randomAsk 1:" +randomAsk);
-    current.push(randomAsk);
-    console.log("current length:" + current.length);
-    while(current[current.length - 1] == current[current.length - 2]){
-        randomAskk();
-    }
-        // console.log(randomAsk);
-        return randomAsk;
-    
-
+    //TODO: hoc toan
+    var randomAsk = randomInt(0, askjson.length - 2) + 1;
+    current = (current + randomAsk) % (askjson.length - 1);
     // console.log(current);
-    
+    return current + 1;
+    // console.log("randomAsk 1:" +randomAsk);
+    // console.log(`current: ${current}, randomAsk: ${randomAsk}`);
+    // if (randomAsk === current) {
+    //     return randomAskk();
+    // }
+    // else {
+    //     current = randomAsk;
+    //     // console.log(randomAsk);
+    //     return randomAsk;
+    // }
 }
 let i;
-Router.get('/answer', (req, res)=> {
-    
-     i = randomAskk();
+
+Router.get('/answer', (req, res) => {
+
+    i = randomAskk();
     // console.log(i);
-    res.render("answer",{
-        answer : askjson[i].question,
-        id : "/question/" + i
-     });
+    res.render("answer", {
+        answer: askjson[i].question,
+        id: "/question/" + i,
+        homepageActive: "",
+        askActive: "",
+        answerActive: "active"
+    });
     // console.log(askjson);
 });
 
-Router.post('/ask/send', (req,res) =>{
+Router.post('/ask/send', (req, res) => {
     pushJson(req.body.question);
 
     res.render("ask");
     // pushJson(req.body.question);
     console.log(req.body.question);
-    
+
 });
 
 Router.post('/answer/y', (req, res) => {
-    askjson[i].yes++; 
+    askjson[i].yes++;
 
     fc.writeFile('ask.json', JSON.stringify(askjson));
 
-    res.render("question",{
-        varibles: "Question: " + askjson[i].question + '</br>' + "Yes: " + askjson[i].yes + '</br>' + "No: " + askjson[i].no
-    });
+    res.redirect("/question/" + i);
 });
 
 Router.post('/answer/n', (req, res) => {
-    askjson[i].no++; 
+    askjson[i].no++;
 
     fc.writeFile('ask.json', JSON.stringify(askjson));
 
-    res.render("question",{
-        varibles: "Question: " + askjson[i].question + '</br>' + "Yes: " + askjson[i].yes + '</br>' + "No: " + askjson[i].no
-    });
+    res.redirect("/question/" + i);
 });
 
-Router.get('/question/:id', (req, res) =>{
+Router.get('/question/:id', (req, res) => {
     var id = req.params.id;
     // res.send(id);
-    
-    res.render("question",{
-        varibles: "Question: " + askjson[i].question + '</br>' + "Yes: " + askjson[i].yes + '</br>' + "No: " + askjson[i].no
+    var total = askjson[i].yes + askjson[i].no;
+    var yesPercentage = Math.floor((askjson[i].yes / total) * 100);
+    var noPercentage = Math.floor((askjson[i].no / total) * 100);
+
+    res.render("question", {
+        question: askjson[i].question,
+        totalVote: total,
+        yesPercentage : yesPercentage,
+        noPercentage : noPercentage
     });
 });
 

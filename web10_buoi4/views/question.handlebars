@@ -1,1 +1,15 @@
-{{{varibles}}}
+
+
+<div class="container text-center">
+    <h1>{{question}}</h1>
+    <h3>{{totalVote}} votes</h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{yesPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{yesPercentage}}%">
+             {{yesPercentage}}% <i class="glyphicon glyphicon-thumbs-up"></i>
+        </div>
+        <div class="progress-bar progress-bar-warning progress-bar-danger" role="progressbar" aria-valuenow="{{noPercentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{noPercentage}}%">
+            {{noPercentage}}% <i class="glyphicon glyphicon-thumbs-down"></i>
+        </div>
+    </div>
+    <button class="btn btn-default"><a href="/answer">Another question</a></button>
+</div>

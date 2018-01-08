@@ -1,8 +1,11 @@
-<div class="question-div">
-    <p>Question</p>
+<div class="container" id="ask_container">
+    <h1>Question</h1>
 
-    <form method="post" action="/ask/send">
-    <textarea name="question" class="question"></textarea>
-    <input type="submit" value="Send">
-    </form>
+    <div class="form-group">
+        <form method="post" action="/ask/send">
+        <textarea class="form-control" name="question" ></textarea>
+        <span style="display:block"><span id="num_count"></span>/200</span>
+        <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
 </div>

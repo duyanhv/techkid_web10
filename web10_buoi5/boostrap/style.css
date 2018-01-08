@@ -1,0 +1,16 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    transition: 1s;
+
+}
+
+@media screen and (min-width :768px){
+    div{
+        background-color: lightgreen;
+        width: 200px;
+        height: 200px;
+        transition: 1s;
+    }
+}

@@ -93,12 +93,12 @@ function randomAskk() {
     //     return randomAsk;
     // }
 }
-let i;
+let i = 0;
 
 Router.get('/answer', (req, res) => {
 
     i = randomAskk();
-    // console.log(i);
+
     res.render("answer", {
         answer: askjson[i].question,
         id: "/question/" + i,

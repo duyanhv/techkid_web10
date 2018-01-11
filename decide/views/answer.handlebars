@@ -1,0 +1,20 @@
+<div class="container">
+    <h3 class="text-center">{{question}}</h3>
+    <div class="row text-center">
+        <form class="col-xs-6" action="/question/{{id}}" method="post"> 
+            <button type="submit" name="answer" class="btn btn-success" value="YES"> <i class="glyphicon glyphicon-thumbs-up"></i> YES / YES / YES</button>
+        
+            <button type="submit" name="answer" class="btn btn-danger" value="NO"> <i class="glyphicon glyphicon-thumbs-down"></i>  NO / NO / NO</button>
+        </form>
+
+        
+        <button onclick="reloadSite()" class="btn btn-default">Another question</button>
+        <button class="btn btn-default"><a href='/question/{{id}}'>Result</a></button>
+    </div>
+</div>
+
+<script>
+    function reloadSite(){
+        window.location.reload();
+    }
+</script>

@@ -6,6 +6,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mainpageRoute = require('./mainpageRouter');
 const fc = require('./fileController');
+const mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({ extended:true }))
 app.engine("handlebars", handlebars({defaultLayout: 'main'}));
@@ -56,6 +57,13 @@ app.use(express.static('public'));
 // })
 
 
+mongoose.connect("mongodb://localhost:27017/decide", (err) =>{
+	if(err){
+		console.log(err);
+	}else{
+		console.log("Connect successfully");
+	}
+});
 
 //6969 là port ở local host
 app.listen(config.port, (err) =>{

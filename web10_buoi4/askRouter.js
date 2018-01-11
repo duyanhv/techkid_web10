@@ -1,25 +1,20 @@
 const express = require('express');
 const Router = express.Router();
-const fs = require('fs');
+// const fs = require('fs');
 const fc = require('./fileController');
 // var askjson = require('./ask.json');
- 
-const askjson = fs.existsSync('ask.json') ? require('./ask.json') : initJson();
+const QuestionSchema = require('./model/questionModel');
+const askjson = fc.exists('ask.json') ? require('./ask.json') : initJson();
 // const askjson = "";
 function initJson() {
 
-    if (!fs.existsSync('ask.json')) {
+    if (!fc.exists('ask.json')) {
         fc.writeFile('ask.json', '[{"id":0,"question":"","yes":0,"no":0}]');
         console.log("chay vao initJson");
     } else {
         console.log("file exixsted");
     }
-
-    if(fs.existsSync('ask.json')){
-        askjson = require('./ask.json');
-        
-    }
-
+    
 }
 
 
@@ -59,6 +54,7 @@ Router.get('/', (req, res) => {
 });
 
 Router.get('/ask', (req, res) => {
+
     res.render("ask",{
         homepageActive: "",
         askActive: "active",
@@ -95,6 +91,8 @@ function randomAskk() {
 }
 let i = 0;
 
+var id = 0;
+
 Router.get('/answer', (req, res) => {
 
     i = randomAskk();
@@ -109,8 +107,23 @@ Router.get('/answer', (req, res) => {
     // console.log(askjson);
 });
 
+
 Router.post('/ask/send', (req, res) => {
-    pushJson(req.body.question);
+    let question = req.body.question;
+    QuestionSchema.create({question}, (err,res) =>{
+        if(err){
+            console.log(err);
+        }else{
+            console.log(res);
+            id = res._id;
+            console.log(id);
+            QuestionSchema.findQuestionById(id,function (err,questionid){
+                console.log(questionid.question);
+            }); 
+        }
+    });
+
+    // pushJson(req.body.question);
 
     res.render("ask");
     // pushJson(req.body.question);

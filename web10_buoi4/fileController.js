@@ -9,7 +9,7 @@ const readFileSync = (fileName,data) => {
 }
 
 const existsSync = (filePath) => {
-	fs.existsSync(filePath);
+	return fs.existsSync(filePath);
 }
 
 

@@ -12,33 +12,34 @@ Router.post('/', (req, res) => {
         username: req.body.username,
         email: req.body.email
     };
-    userController.getUserListByName(req.body.username, (err1, res1) => {
-
-        if (err1) {
-            console.error(err1);
-        }
-        // console.log(res1);
-        if (res1) {
-            res.send(res1.username);
+    userController.addUser(newUser, (err, data) => {
+        if (err) {
+            console.log(err);
         } else {
-            res.send('!res1');
+            res.render('req', {
+                username: data.username
+            });
         }
     });
-
-    // userController.addUser(newUser, (err, data) => {
-    //     if (err) {
-    //         console.log(err);
-    //     } else {
-    //         res.render('req', {
-    //             username: data.username
-    //         });
-    //     }
-    // });
 
 
 });
 
-
+Router.post('/api/', (req, res) => {
+    userController.getUserListByName(req.body.username, (err1, res1) => {
+        
+                if (err1) {
+                    console.error(err1);
+                }
+                // console.log(res1);
+                if (res1) {
+                    
+                    res.send(res1.username);
+                } else {
+                    res.send('!res1');
+                }
+            });
+});
 
 
 

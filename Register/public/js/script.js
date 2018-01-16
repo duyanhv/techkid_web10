@@ -16,7 +16,7 @@ $('input.form-control').on('blur', (e) => {
     
     
     $.ajax({
-        url: '/',
+        url: '/api/',
         method: 'POST',
         data: {
             username: x1
@@ -28,7 +28,6 @@ $('input.form-control').on('blur', (e) => {
             $('#strong').html(hey+"");
             $('#danger1_1').css("display", "");
             $('#danger1_2').css("display", "none");
-            $('#strong_success').html("");
         }else{
             $('#danger1_1').css("display", "none");
             $('#danger1_2').css("display", "");

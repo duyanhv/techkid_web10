@@ -1,0 +1,11 @@
+<h3>Điểm số: {{totalPoint}}</h3>
+<form id="answer_submit" class="col-md-12">
+    <div class="row" id="question_content">
+        {{question.content}}
+    </div>
+    <ul class="row" id="answer_list">
+        {{#each question.answers}}
+            <li><input type="submit" name="answer" onclick="formSubmit(event, '/answer/{{../question._id}}', {{content}});" value="{{content}}"></li>
+        {{/each}}
+    </ul>
+</form>

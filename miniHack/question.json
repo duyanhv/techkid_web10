@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "content": "Chọn một số từ 1 đến 10, và nhận số điểm tương ứng - nhưng chỉ khi có ít hơn 17% số người chơi cũng chọn số đó.",
+        "answers": [
+            {
+                "content":1,
+                "totalSelect":0
+            },
+            {
+                "content":2,
+                "totalSelect":0
+            },
+            {
+                "content":3,
+                "totalSelect":0
+            },
+            {
+                "content":4,
+                "totalSelect":0
+            },
+            {
+                "content":5,
+                "totalSelect":0
+            },
+            {
+                "content":6,
+                "totalSelect":0
+            },
+            {
+                "content":7,
+                "totalSelect":0
+            },
+            {
+                "content":8,
+                "totalSelect":0
+            },
+            {
+                "content":9,
+                "totalSelect":0
+            },
+            {
+                "content":10,
+                "totalSelect":0
+            }
+        ],
+        "list": true
+    }
+]
